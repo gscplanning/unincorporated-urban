@@ -68,7 +68,7 @@ var neBounds = L.latLng(38.345628, -84.530525),
 
 map.fitBounds(uuaBounds);
 
-var toner = L.tileLayer('http://{s}.{base}.maps.cit.api.here.com/maptile/2.1/maptile/{mapID}/normal.night/{z}/{x}/{y}/256/png8?app_id={app_id}&app_code={app_code}', {
+var toner = L.tileLayer('http://{s}.{base}.maps.cit.api.here.com/maptile/2.1/maptile/{mapID}/normal.day/{z}/{x}/{y}/256/png8?app_id={app_id}&app_code={app_code}', {
   attribution: 'Map &copy; 1987-2014 <a href="http://developer.here.com">HERE</a>',
   subdomains: '1234',
   mapID: 'newest',
@@ -82,9 +82,9 @@ toner.addTo(map);
 
 function style(feature) {
   return {
-    fillColor: '#2ecc71',
+    fillColor: '#9b59b6',
     fillOpacity: 0.2,
-    color: '#27ae60',
+    color: '#8e44ad',
     weight: 2,
     opacity: 1
   }
