@@ -62,6 +62,8 @@
 <script type="text/javascript">
 var map = L.map('map');
 
+map.attributionControl.addAttribution('<a href="ftp://ftp2.census.gov/geo/tiger/TIGER2014/UAC/" target="_blank">US Census 2014 TIGER/Line Files</a>');
+
 var neBounds = L.latLng(38.345628, -84.530525),
   swBounds = L.latLng(38.152040, -84.603310),
   uuaBounds = L.latLngBounds(swBounds, neBounds);
