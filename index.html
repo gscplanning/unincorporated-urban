@@ -8,7 +8,7 @@
   <meta name="author" content="">
   <link rel="icon" href="../../favicon.ico">
 
-  <title>Sticky Footer Navbar Template for Bootstrap</title>
+  <title>Unincorporated Urban Areas - Scott County, KY</title>
 
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
@@ -22,6 +22,7 @@
       height: 100%;
       width: 100%;
       padding-top: 50px;
+      font-family: 'Open Sans', Arial, sans-serif;
     }
     #map {
       height: 100%;
@@ -60,8 +61,8 @@
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#about">Download (PDF)</a></li>
+          <li><a href="#" id="full-extent">Full Extent</a></li>
+          <li><a href="https://github.com/gscplanning/unincorporated-urban/raw/gh-pages/UnincorporatedUrbanAreas_11x17_20150622.pdf" target="_blank">Download (PDF)</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
@@ -80,42 +81,43 @@
 var map = L.map('map');
 
 var neBounds = L.latLng(38.345628, -84.530525),
-swBounds = L.latLng(38.152040, -84.603310),
-uuaBounds = L.latLngBounds(swBounds, neBounds);
+  swBounds = L.latLng(38.152040, -84.603310),
+  uuaBounds = L.latLngBounds(swBounds, neBounds);
 
 map.fitBounds(uuaBounds);
 
-var toner = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png', {
-attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-subdomains: 'abcd',
-minZoom: 0,
-maxZoom: 20,
-ext: 'png'
+var toner = L.tileLayer('http://{s}.{base}.maps.cit.api.here.com/maptile/2.1/maptile/{mapID}/normal.night/{z}/{x}/{y}/256/png8?app_id={app_id}&app_code={app_code}', {
+  attribution: 'Map &copy; 1987-2014 <a href="http://developer.here.com">HERE</a>',
+  subdomains: '1234',
+  mapID: 'newest',
+  app_id: '5FErsK3QGbxLQZmiJYxg',
+  app_code: 'A-T7FASMZq2ik24toGKwkw',
+  base: 'base',
+  maxZoom: 20
 });
 
 toner.addTo(map);
 
-areaStyle = {
-"color": "#F39C6B",
-"weight": 2,
-"opacity": 0.85
-}
-
 function style(feature) {
-return {
-fillColor: '#3498db',
-fillOpacity: 0.25,
-color: '#2980b9',
-weight: 2,
-opacity: 1
-}
+  return {
+    fillColor: '#2ecc71',
+    fillOpacity: 0.2,
+    color: '#27ae60',
+    weight: 2,
+    opacity: 1
+  }
 }
 
 var promise = $.getJSON('./data/uua_scott_wgs84.geojson');
 promise.then(function(data) {
-var course = L.geoJson(data, {
-style: style
-}).addTo(map);
+  var course = L.geoJson(data, {
+    style: style
+  }).addTo(map);
+});
+
+$("#full-extent").click(function(){
+  // map.fitBounds(uuaBounds);
+  map.fitBounds(uuaBounds);
 });
 </script>
 </body>
