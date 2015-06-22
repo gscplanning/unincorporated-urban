@@ -1,0 +1,30 @@
+.container .text-muted {
+      margin: 20px 0;
+    }
+    .footer > .container {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+    code {
+      font-size: 80%;
+    }
+
+    .navbar-default{
+      background-color: #27ae60;
+      border-width: 0;
+    }
+
+    .navbar-header {
+      border-color: #27ae60;
+      border-width: 2px;
+    }
+
+    .navbar-default .navbar-brand {
+      font-weight: bold;
+    }
+    .navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a {
+      color: #fff;
+    }
+    .navbar-default .navbar-brand:hover, .navbar-default .navbar-nav>li>a:hover {
+      color: #f0f0f0;
+    }
